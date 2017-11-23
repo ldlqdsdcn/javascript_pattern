@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>javascript对象引用</title>
+    <script type="text/javascript">
+        var myPageHelper = {
+            "pageName": "对象引用测试",
+            "members": ["王二", "张三", "李四", "王五", "赵六", "朱七", "牛八"],
+            "outPageMemebers": function () {
+                var _this = this;
+                this.members.forEach(function (e) {
+                    console.log(_this.pageName + ":" + e)
+                })
+            }
+        };
+        myPageHelper.outPageMemebers();
+    </script>
+</head>
+<body>
+
+</body>
+</html>

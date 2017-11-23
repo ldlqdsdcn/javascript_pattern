@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>deferred</title>
+    <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript">
+        $.ajax("hello.html").done(function(){ alert("成功");}).fail(function(){alert("error")})
+                .done(function(){alert("second call back function")});
+        $(function () {
+            $("#ajaxCallBackBtn").click(function (event) {
+               alert(JSON.stringify(this.value))
+            });
+            $("#moreOperateCallBack").click(function () {
+                $.when($.ajax("hello.html"), $.ajax("hello2.html"))
+                        .done(function(){ alert("哈哈，成功了！"); })
+                        .fail(function(){ alert("出错啦！"); });
+            })
+        })
+    </script>
+</head>
+<body>
+    <input type="button" value="ajax回调函数" id="ajaxCallBackBtn">
+    <input type="button" value="多个 ajax回调函数" id="moreOperateCallBack">
+    <input type="button" value="普通函数回调" id="normalFunction">
+</body>
+</html>
